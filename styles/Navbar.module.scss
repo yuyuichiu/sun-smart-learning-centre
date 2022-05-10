@@ -35,3 +35,21 @@
     display: block;
   }
 }
+
+.dynamicNav {
+  position: fixed;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(190, 190, 190, 0.7);
+  z-index: 10000;
+  transition: all 0.3s;
+  transform: translateY(-65px);
+
+  &.active {
+    transform: translateY(0px);
+  }
+}
