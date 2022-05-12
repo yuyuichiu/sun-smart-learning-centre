@@ -16,7 +16,7 @@ const Navbar: React.FC = () => {
     window.addEventListener('scroll', handleScroll, { passive: true });
   }, [])
 
-  return <nav className={`d-flex justify-content-between align-items-center`} style={{height: '60px',zIndex: 5000}}>
+  return <nav className={`d-flex justify-content-between align-items-center px-md-3`} style={{height: '60px',zIndex: 5000}}>
     <div>
       <Image src={brandLogo} placeholder="blur" width={220} height={60} alt='brand'/>
     </div>
@@ -57,25 +57,25 @@ const Navbar: React.FC = () => {
       <div className={`${styles.overlay}`} onClick={() => setMenuOpen(!menuOpen)}></div>
 
       <ul className='list-unstyled' id='nav'>
-        <li>
+        <li onClick={() => setMenuOpen(!menuOpen)}>
           <a href='#' className='d-inline-block py-3 link-dark text-decoration-none w-100 text-center'>
             主頁
           </a>
         </li>
 
-        <li>
+        <li onClick={() => setMenuOpen(!menuOpen)}>
           <a href='#achievement' className='d-inline-block py-3 link-dark text-decoration-none w-100 text-center'>
             學生成就
           </a>
         </li>
 
-        <li>
+        <li onClick={() => setMenuOpen(!menuOpen)}>
           <a href='#classes' className='d-inline-block py-3 link-dark text-decoration-none w-100 text-center'>
             課程
           </a>
         </li>
 
-        <li>
+        <li onClick={() => setMenuOpen(!menuOpen)}>
           <a href='#contact' className='d-inline-block py-3 link-dark text-decoration-none w-100 text-center'>
             聯絡/地址
           </a>
