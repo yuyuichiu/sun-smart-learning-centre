@@ -5,6 +5,7 @@ import Image from 'next/image';
 import styles from '../styles/Home.module.scss';
 import Navbar from '../components/Navbar';
 import { FaWhatsapp } from 'react-icons/fa';
+import GoogleMapDisplay from '../components/GoogleMapDisplay';
 
 /* Static image import for convenience */
 import heroImage from '../public/assets/sunsmart_store.jpeg';
@@ -228,23 +229,27 @@ const Home: NextPage = () => {
 
       <footer className={`${styles.footer} container`} id='contact'>
         <h2>聯絡我們</h2>
-        {/* TODO： Google Map */}
+        <GoogleMapDisplay />
 
-        <p>我們現正收生, 歡迎聯絡我們！</p>
-        <br/>
-        <p>地址: 新界元朗天水圍天秀路8號天一商城一樓1026鋪</p>
-        <p>電話: 34019701 (辦公時間)</p>
-        <p>Whatsapp: 90118447 (非辦公時間)</p>
+        <p className='fw-bold'>我們現正收生, 歡迎聯絡我們！</p>
+        <p>
+          地址: 新界元朗天水圍天秀路8號天一商城一樓1026鋪&nbsp;
+          <a href='https://www.google.com/maps/place/SUN+SMART+LEARNING+CENTRE/@22.464815,114.0008163,17z/data=!3m1!4b1!4m5!3m4!1s0x3403f08a3edc4e67:0x4d9007d32e8046a5!8m2!3d22.464815!4d114.003005' target='_blank' rel='noreferrer'>
+            Google Map
+          </a>
+        </p>
+        <p>電話: 34019701 (辦公時間內回覆)</p>
+        <p>Whatsapp: 90118447</p>
         <p>電郵: smart_learningcentre@yahoo.com.hk</p>
         <br/>
-        <p>營業時間：星期一至五 3：00～6：30pm | 星期六 10:00am~5:30pm | 星期日休息</p>
+        <p>營業時間：星期一至五 3:00~6:30pm | 星期六 10:00am~5:30pm | 星期日休息</p>
       </footer>
 
-      <aside className={`${styles.wtsapp} d-flex align-items-center justify-content-center`} id='whatsapp' title='在whatsapp聯絡我們'>
-        <a href='https://api.whatsapp.com/send?phone=85290118447' target='_blank' rel='noreferrer'>
+      <a href='https://api.whatsapp.com/send?phone=85290118447' target='_blank' rel='noreferrer'>
+        <aside className={`${styles.wtsapp} d-flex align-items-center justify-content-center`} id='whatsapp' title='在whatsapp聯絡我們'>
           <FaWhatsapp size={40} color='white'/>
-        </a>
-      </aside>
+        </aside>
+      </a>
     </main>
   )
 }

@@ -85,7 +85,7 @@ const Navbar: React.FC = () => {
 
     {/* Sticky navbar upon scrolling */}
     <div className={`${styles.dynamicNav} ${scrollPos > 60 ? styles.active : ''} ${menuOpen ? 'd-none' : ''} px-4`}>
-      <Image src={brandLogo} placeholder="blur" width={220} height={60} alt='brand logo'/>
+      <Image src={brandLogo} placeholder="blur" width={220} height={60} alt='brand logo' onClick={() => {window.scrollTo(0,0)}}/>
 
       <ul className={`list-unstyled d-none d-md-flex my-0`} id='nav'>
         <li>
