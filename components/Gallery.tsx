@@ -1,4 +1,4 @@
-import Carousel from "react-bootstrap/carousel";
+import Carousel from "react-bootstrap/Carousel";
 import Image from "next/image";
 import awardBoardImg from "../public/assets/studentAwards/awardBoard.jpg";
 
