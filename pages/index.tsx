@@ -4,12 +4,12 @@ import Head from 'next/head';
 import Image from 'next/image';
 import styles from '../styles/Home.module.scss';
 import Navbar from '../components/Navbar';
+import Gallery from '../components/Gallery'
 import { FaWhatsapp } from 'react-icons/fa';
 import GoogleMapDisplay from '../components/GoogleMapDisplay';
 
 /* Static image import for convenience */
 import heroImage from '../public/assets/sunsmart_store.jpeg';
-import awardBoardImg from '../public/assets/studentAwards/awardBoard.jpg'
 import schoolImg1 from '../public/assets/school1.jpg';
 import schoolImg2 from '../public/assets/school2.jpg';
 import schoolImg3 from '../public/assets/school3.jpg';
@@ -31,20 +31,25 @@ const achievements : Array<{idx: number, name: string, award: string}> = [
   {idx: 8, name: '小四-陳同學', award: '全班第三名'},
   {idx: 9, name: '小六-林同學', award: '全班第一名'},
   {idx: 10, name: '小六-梁同學', award: '英文全級第一名'},
+  {idx: 11, name: '小六-謝同學', award: '飛躍進步獎'},
 ];
 
 /* Main component */
 const Home: NextPage = () => {
   const [aboutAnimation, setAboutAnimation] = useState(false);
   const [logoAnimation, setLogoAnimation] = useState(false);
+  const [classesAnimation, setClassesAnimation] = useState(false);
+  const [othersAnimation, setOthersAnimation] = useState(false);
   const logosEl = useRef<HTMLDivElement>(null);
+  const classesEl = useRef<HTMLDivElement>(null);
+  const othersEl = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     // Scroll at initial load to deal with a bug
     window.scrollBy(0,-1);
 
     // Criteria for CSS animation to show based on scroll location, animation will only show once.
-    window.addEventListener('scroll', () => {      
+    window.addEventListener('scroll', () => {
       if(!aboutAnimation && (window.scrollY + window.innerHeight - 150 > 666)){
         setAboutAnimation(true);
       }
@@ -54,8 +59,20 @@ const Home: NextPage = () => {
       )){
         setLogoAnimation(true);
       }
+
+      if(!classesAnimation && (
+        window.scrollY + window.innerHeight - 200 > (classesEl.current ? classesEl.current.offsetTop : 9999)
+      )){
+        setClassesAnimation(true);
+      }
+
+      if(!othersAnimation && (
+        window.scrollY + window.innerHeight - 200 > (othersEl.current ? othersEl.current.offsetTop : 9999)
+      )){
+        setOthersAnimation(true);
+      }
     }, { passive: true });
-  })
+  }, []);
 
   return (
     <main>
@@ -78,7 +95,9 @@ const Home: NextPage = () => {
           <p className='fw-bold'>學生家長讚讚不絕！</p>
           <br />
           <p>註冊編號: 572632</p>
-          <button className='btn-custom'>尋找我們</button>
+          <a href='#contact'>
+            <button className='btn-custom'>尋找我們</button>
+          </a>
         </header>
       </section>
 
@@ -86,7 +105,6 @@ const Home: NextPage = () => {
         <section id='about' className='my-5 container'>
           <h2 className='m-4 text-center fw-bold'>關於我們</h2>
           <div className='row'>
-            {/* Located at height: 666px */}
             <p className={`col-md-6 col-12 ${styles.aboutUsTxt} ${aboutAnimation ? styles.active : ''}`}>
               本中心成立十五年，為社區學生提供補習。我們集合最具教學經驗的老師，致力為學生提供一系列多元化又優質的課程，緊貼家長與同學的需求。我們緊貼現今教育模式，提供專為學生而設的全方位學習，全面提升學生們的啟發能力與主動學習精神、培訓應試技巧，讓他們輕鬆面對考試，得到最佳成績。
             </p>
@@ -123,9 +141,8 @@ const Home: NextPage = () => {
           <p className='text-center'>學生們於我們的教導下茁壯成長！</p>
 
           <div className='row'>
-            {/* TODO: Carousel Gallery instead of one image */}
-            <div className='col-6 d-none d-md-block' style={{position: 'relative', height: '700px'}}>
-              <Image src={awardBoardImg} placeholder='blur' layout='fill' objectFit='cover' objectPosition='top' title='學生成績' alt='學生成績' />
+            <div className={`col-6 d-none d-md-block`}>
+              <Gallery />
             </div>
 
             <div className='col-12 col-md-6'>
@@ -151,10 +168,10 @@ const Home: NextPage = () => {
           </div>
         </section>
 
-        <section id='classes' className='mb-5'>
+        <section id='classes' className='mb-5' ref={classesEl}>
           <h2 className='text-center fw-bold'>課程</h2>
           
-          <article className={`${styles.classes}`}>
+          <article className={`${styles.classes} ${classesAnimation ? styles.active : ''}`}>
             <div className='container position-relative'>
               <div className={`${styles.imageBox}`} >
                 <div className={`${styles.imageContainer}`}>
@@ -167,7 +184,7 @@ const Home: NextPage = () => {
             </div>
           </article>
 
-          <article className={`${styles.classes}`}>
+          <article className={`${styles.classes} ${classesAnimation ? styles.active : ''}`}>
             <div className='container position-relative'>
               <div className={`${styles.imageBox}`} >
                 <div className={`${styles.imageContainer}`}>
@@ -180,7 +197,7 @@ const Home: NextPage = () => {
             </div>
           </article>
 
-          <article className={`${styles.classes}`}>
+          <article className={`${styles.classes} ${classesAnimation ? styles.active : ''}`}>
             <div className='container position-relative'>
               <div className={`${styles.imageBox}`} >
                 <div className={`${styles.imageContainer}`}>
@@ -195,7 +212,7 @@ const Home: NextPage = () => {
 
           <article className={`container-md`}>
             <h3 className='text-center p-4 p-md-0'>還有其他課程...</h3>
-            <div className={`${styles.others}`}>
+            <div className={`${styles.others} ${othersAnimation ? styles.active : ''}`} ref={othersEl}>
               <span>
                 <div>英文技巧寫作</div>
               </span>
@@ -221,8 +238,8 @@ const Home: NextPage = () => {
                 </div>
               </aside>
             </div>
+            <p>報名與詳情請聯絡我們或親臨門市查詢</p>
 
-            <p className='text-center'>報名與詳情請聯絡我們或親臨門市查詢</p>
           </article>
         </section>
       </main>
@@ -238,11 +255,11 @@ const Home: NextPage = () => {
             Google Map
           </a>
         </p>
-        <p>電話: 34019701 (辦公時間內回覆)</p>
+        <p>電話: 34019701 (辦公時間內接聽)</p>
         <p>Whatsapp: 90118447</p>
         <p>電郵: smart_learningcentre@yahoo.com.hk</p>
         <br/>
-        <p>營業時間：星期一至五 3:00~6:30pm | 星期六 10:00am~5:30pm | 星期日休息</p>
+        <p>營業時間：星期一至五 3:00pm~6:30pm | 星期六 10:00am~5:30pm | 星期日休息</p>
       </footer>
 
       <a href='https://api.whatsapp.com/send?phone=85290118447' target='_blank' rel='noreferrer'>

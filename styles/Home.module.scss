@@ -116,6 +116,9 @@
   background-color: var(--tertiary-color);
   padding: 40px 0;
   margin: 40px 0;
+  opacity: 0;
+  transform: translateY(150px);
+  transition: 1s;
 
   .imageBox {
     position: absolute;
@@ -190,6 +193,11 @@
       position: relative;
     }
   }
+
+  &.active {
+    opacity: 1;
+    transform: translateY(0px);
+  }
 }
 
 .others {
@@ -199,6 +207,27 @@
   gap: 15px;
   position: relative;
   color: var(--black-color);
+  opacity: 0;
+  transform: translateY(100px);
+  transition: 1s;
+  
+  & + p {
+    text-align: center;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: 1s;
+    transition-delay: 1s;
+  }
+
+  &.active {
+    transform: translateY(0);
+    opacity: 1;
+
+    & + p {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 
   span {
     display: flex;
