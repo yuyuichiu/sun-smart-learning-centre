@@ -8,7 +8,7 @@ const Gallery: React.FC = (props) => {
   return (
     <Carousel variant="dark">
       <Carousel.Item interval={5000}>
-        <div style={{ position: "relative", height: "500px" }}>
+        <div style={{ position: "relative", height: "450px" }}>
           <Image
             src={awardBoardImg}
             placeholder="blur"
@@ -22,7 +22,7 @@ const Gallery: React.FC = (props) => {
       {studentAwards.map((item, idx) => {
         return (
           <Carousel.Item  interval={2000} key={`award-${item}`}>
-            <div style={{ position: "relative", height: "500px" }}>
+            <div style={{ position: "relative", height: "450px" }}>
               <Image
                 src={`/assets/studentAwards/${item}.jpg`}
                 placeholder='blur'

@@ -95,7 +95,7 @@ const Home: NextPage = () => {
           <p className='fw-bold'>學生家長讚讚不絕！</p>
           <br />
           <p>註冊編號: 572632</p>
-          <a href='#contact'>
+          <a href='#contact' className='d-flex d-md-block align-items-center text-decoration-none'>
             <button className='btn-custom'>尋找我們</button>
           </a>
         </header>
