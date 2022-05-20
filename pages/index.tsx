@@ -36,6 +36,7 @@ const achievements : Array<{idx: number, name: string, award: string}> = [
 
 /* Main component */
 const Home: NextPage = () => {
+  const currentYear = new Date().getFullYear();
   const [aboutAnimation, setAboutAnimation] = useState(false);
   const [logoAnimation, setLogoAnimation] = useState(false);
   const [classesAnimation, setClassesAnimation] = useState(false);
@@ -260,6 +261,8 @@ const Home: NextPage = () => {
         <p>電郵: smart_learningcentre@yahoo.com.hk</p>
         <br/>
         <p>營業時間：星期一至五 3:00pm~6:30pm | 星期六 10:00am~5:30pm | 星期日休息</p>
+
+        <small>Copyright © {currentYear} <a href='https://www.yuyuichiu.com' target='_blank' rel='noreferrer'>Dave Yu</a>, All rights reserved.</small>
       </footer>
 
       <a href='https://api.whatsapp.com/send?phone=85290118447' target='_blank' rel='noreferrer'>
