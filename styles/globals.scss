@@ -33,3 +33,9 @@
   color: var(--white-color);
   border: 2px solid var(--primary-color);
 }
+
+@media (prefers-color-scheme: dark) {
+  body {
+    color: var(--white-color);
+  }
+}
