@@ -19,6 +19,12 @@
       -webkit-text-fill-color: transparent;
     }
 
+    @media (prefers-color-scheme: dark) {
+      h2 {
+        background: -webkit-linear-gradient(var(--tertiary-color), var(--white-color));
+      }
+    }
+
     p {
       color: var(--black-color);
       margin: 0;
