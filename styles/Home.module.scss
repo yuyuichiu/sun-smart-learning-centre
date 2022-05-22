@@ -21,7 +21,9 @@
 
     @media (prefers-color-scheme: dark) {
       h2 {
-        background: -webkit-linear-gradient(var(--tertiary-color), var(--white-color));
+        background: none;
+        -webkit-text-fill-color: #fff;
+        color: #fff;
       }
     }
 
