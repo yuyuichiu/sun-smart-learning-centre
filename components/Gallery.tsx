@@ -1,6 +1,6 @@
 import Carousel from "react-bootstrap/Carousel";
 import Image from "next/image";
-import awardBoardImg from "../public/assets/studentAwards/awardBoard.webp";
+import awardBoardImg from "../public/assets/studentAwards/awardBoard.jpg";
 
 const studentAwards = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
 
@@ -24,7 +24,7 @@ const Gallery: React.FC = (props) => {
           <Carousel.Item  interval={2000} key={`award-${item}`}>
             <div style={{ position: "relative", height: "450px" }}>
               <Image
-                src={`/assets/studentAwards/${item}r.webp`}
+                src={`/assets/studentAwards/${item}.webp`}
                 placeholder='blur'
                 blurDataURL={`/assets/studentAwards/${item}.webp`}
                 layout="fill"
