@@ -1,6 +1,6 @@
 import Carousel from "react-bootstrap/Carousel";
 import Image from "next/image";
-import awardBoardImg from "../public/assets/studentAwards/awardBoard.jpg";
+import awardBoardImg from "../public/assets/studentAwards/awardBoard.webp";
 
 const studentAwards = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
 
