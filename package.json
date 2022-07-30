@@ -16,7 +16,8 @@
     "react-dom": "18.0.0",
     "react-icons": "^4.3.1",
     "sass": "^1.51.0",
-    "scss": "^0.2.4"
+    "scss": "^0.2.4",
+    "sharp": "^0.30.7"
   },
   "devDependencies": {
     "@types/google.maps": "^3.48.8",
