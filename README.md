@@ -1,5 +1,5 @@
 # Landing page for Sun Smart Learning Centre
-Website: https://sunsmart.netlify.app/
+Website: https://sunsm.art
 
 #### Technologies Used:
   - React.js
