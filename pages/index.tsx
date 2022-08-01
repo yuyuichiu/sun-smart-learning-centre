@@ -1,7 +1,6 @@
 import type { NextPage } from 'next';
 import { useState, useEffect, useRef } from 'react';
 import Head from 'next/head';
-import Image from 'next/image';
 import styles from '../styles/Home.module.scss';
 import Navbar from '../components/Navbar';
 import Gallery from '../components/Gallery'
@@ -26,7 +25,7 @@ const achievements : Array<{idx: number, name: string, award: string}> = [
 /* Main component */
 const Home: NextPage = () => {
   const currentYear = new Date().getFullYear();
-  const [aboutAnimation, setAboutAnimation] = useState(false);
+  const [aboutAnimation, setAboutAnimation] = useState(true); // always show
   const [logoAnimation, setLogoAnimation] = useState(false);
   const [classesAnimation, setClassesAnimation] = useState(false);
   const [othersAnimation, setOthersAnimation] = useState(false);
@@ -77,7 +76,6 @@ const Home: NextPage = () => {
       <section className={`${styles.hero}`}>
         <div className={`${styles.heroImage}`}>
           <img src='/assets/sunsmart_store.jpeg' alt='hero image'/>
-          {/* <Image src={heroImage} placeholder="blur" layout='fill' objectFit='cover' objectPosition='top' alt='hero image'/> */}
         </div>
 
         <header className=''>
