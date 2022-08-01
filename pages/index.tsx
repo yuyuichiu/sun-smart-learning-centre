@@ -25,7 +25,7 @@ const achievements : Array<{idx: number, name: string, award: string}> = [
 /* Main component */
 const Home: NextPage = () => {
   const currentYear = new Date().getFullYear();
-  const [aboutAnimation, setAboutAnimation] = useState(true); // always show
+  const [aboutAnimation, setAboutAnimation] = useState(false);
   const [logoAnimation, setLogoAnimation] = useState(false);
   const [classesAnimation, setClassesAnimation] = useState(false);
   const [othersAnimation, setOthersAnimation] = useState(false);
@@ -34,6 +34,9 @@ const Home: NextPage = () => {
   const othersEl = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    // Show About Us section initally if viewport is too wide
+    if(window.innerWidth >= 768) { setAboutAnimation(true); }
+
     // Scroll at initial load to deal with a bug
     window.scrollBy(0,-1);
 
