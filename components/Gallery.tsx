@@ -21,7 +21,7 @@ const Gallery: React.FC = (props) => {
 
       {studentAwards.map((item, idx) => {
         return (
-          <Carousel.Item  interval={2000} key={`award-${item}`}>
+          <Carousel.Item interval={2000} key={`award-${item}`}>
             <div style={{ position: "relative", height: "450px" }}>
               <Image
                 src={`/assets/studentAwards/${item}.webp`}
