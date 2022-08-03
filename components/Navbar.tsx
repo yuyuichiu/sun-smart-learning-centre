@@ -1,6 +1,4 @@
 import { useState, useEffect } from 'react';
-import Image from 'next/image';
-import brandLogo from '../public/assets/sunsmart_brand.png';
 import { BsListUl } from "react-icons/bs";
 import styles from '../styles/Navbar.module.scss';
 
@@ -18,7 +16,7 @@ const Navbar: React.FC = () => {
 
   return <nav className={`d-flex justify-content-between align-items-center px-md-3`} style={{height: '60px',zIndex: 5000}}>
     <div>
-      <Image src={brandLogo} placeholder="blur" width={220} height={60} alt='brand'/>
+      <img src={'/assets/sunsmart_brand.png'} width={220} height={60} alt='brand'/>
     </div>
 
     {/* PC */}
@@ -85,7 +83,7 @@ const Navbar: React.FC = () => {
 
     {/* Sticky navbar upon scrolling */}
     <div className={`${styles.dynamicNav} ${scrollPos > 60 ? styles.active : ''} ${menuOpen ? 'd-none' : ''} px-4`}>
-      <Image src={brandLogo} placeholder="blur" width={220} height={60} alt='brand logo' onClick={() => {window.scrollTo(0,0)}}/>
+      <img src='/assets/sunsmart_brand.png' width={220} height={60} alt='brand logo' onClick={() => {window.scrollTo(0,0)}}/>
 
       <ul className={`list-unstyled d-none d-md-flex my-0`} id='nav'>
         <li>

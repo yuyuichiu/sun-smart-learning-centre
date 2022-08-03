@@ -49,6 +49,10 @@
   transition: all 0.3s;
   transform: translateY(-65px);
 
+  img {
+    cursor: pointer;
+  }
+
   &.active {
     transform: translateY(0px);
   }

@@ -1,10 +1,12 @@
+import Head from 'next/head';
 import type { NextPage } from 'next';
 import { useState, useEffect, useRef } from 'react';
-import Head from 'next/head';
+import { FaWhatsapp } from 'react-icons/fa';
+
 import styles from '../styles/Home.module.scss';
+
 import Navbar from '../components/Navbar';
 import Gallery from '../components/Gallery'
-import { FaWhatsapp } from 'react-icons/fa';
 import GoogleMapDisplay from '../components/GoogleMapDisplay';
 
 /* For creating the achievement table */
